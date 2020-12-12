@@ -1,7 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:300,regular,500,600,700);
+
 * {
   padding: 0;
   margin: 0;
   border: 0;
+    box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
 }
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
@@ -21,8 +25,8 @@ nav, footer, header, aside {
 }
 
 html, body {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   font-size: 100%;
   line-height: 1;
   font-size: 14px;
@@ -72,73 +76,82 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  min-height: 100vh;
   padding: 120px 0;
 }
-.container2 {
+.wrapper{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  max-width: 100%;
-  max-height: 100%;
-  margin: 0 auto;
-  border: 1px solid #000;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 5px;
-  display: grid;
-  grid-template: 50px/repeat(4, 50px);
-  grid-gap: 5px;
   z-index: 5;
-  align-content: center;
 }
-
-.btn {
-  height: 40px;
-  font-size: 20px;
-  font-weight: bold;
-  position: relative;
-  color: #2196f3;
-  background: #031321;
+.container2{
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
   overflow: hidden;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-
+  z-index: 10;
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
-.btn:hover {
+.container2 .calculator{
   position: relative;
-  z-index: 2;
-  color: #255784;
-  background: #2196f3;
-  -webkit-box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
-          box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
-  -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
+  display: grid;
+}
+.container2 .calculator .value{
+  grid-column: span 4;
+  height: 120px;
+  width: 300px;
+  text-align: right;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 30px;
+  background: transparent;
+  color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+.container2 .calculator span{
+  display: grid;
+  height: 75px;
+  width: 75px;
+  place-items: center;
+  color: #fff;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+ transition: 0.5s;
+}
+.container2 .calculator span:hover{
+ transition: 0s;
+ background: rgba(255, 255, 255, 0.05);
+}
+.container2 .calculator span:active{
+ background: #14ff47;
+ color: #192f00;
+ font-size: 24px;font-weight: 500;
+}
+.container2 .calculator .clear{
+  grid-column: span 2;
+  width: 150px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.container2 .calculator .plus{
+  grid-row: span 2;
+  height: 150px;
 }
 
-.btn:nth-child(1){
-  grid-column: 1/-1;
-  width: 100%;
-  text-align: right;
-  font-size: 24px;
-  background: #fff;
-}
-.btn:nth-child(2){
-  grid-column: 1/3;
-  width: 100%;
-}
-.btn:nth-child(3){
-  grid-column: 3/-1;
-  width: 100%;
-}
-.btn:nth-child(19){
-  grid-row: 6/8;
-  grid-column: 4;
-  height: 100%;
-}
-.btn:nth-child(20){
-  grid-column: 1/3;
-  width: 100%;
-}
+
+
+
+
+
 .nav{
   display: flex;
   justify-content: center;
@@ -148,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff;
   border-radius: 20px 0 0 20px;
 }
-.nav span{
+.nav>span{
   position: relative;
   width: 20px;
   height: 20px;
@@ -163,7 +176,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.2);
 }
 .one {
-  background: #28e651;
+  background: #22b642;
 }
 .two {
   background: #ff226d;
